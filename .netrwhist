@@ -1,10 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/nick/Public'
-let g:netrw_dirhist_2='/home/nick/.vim'
-let g:netrw_dirhist_3='/home/nick'
-let g:netrw_dirhist_4='/home/nick/.vim/bundle/vim-airline/autoload'
-let g:netrw_dirhist_5='/home/nick/.vim/bundle/vim-airline/autoload/airline'
-let g:netrw_dirhist_6='/home/nick/.vim/bundle/vim-airline/plugin'
-let g:netrw_dirhist_7='/home/nick/.vim/bundle'
-let g:netrw_dirhist_8='/home/nick/.vim/bundle/vim-airline'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/nedodo/Development/projects/Archon'
+let g:netrw_dirhist_2='/home/nedodo/Development/projects/Archon/node-api'
+let g:netrw_dirhist_3='/home/nedodo/Development/projects/Archon/node-api/App'
+let g:netrw_dirhist_4='/home/nedodo'
+let g:netrw_dirhist_5='/home/nedodo/.vim'

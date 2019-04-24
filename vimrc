@@ -1,9 +1,17 @@
+" CURRENT_FILE_NAME_PATH: echo expands("%");
+" HELPGREP: helpgrep <search term>
+"   - :cn
+"   - :cb
+"   - :cl
+"
 " ***********************************************************
 " https://linuxconfig.org/manage-vim-plugins-with-pathogen
 " ***********************************************************
 set nocompatible
+filetype plugin on
 filetype plugin indent on
 syntax on
+set showcmd
 
 execute pathogen#infect()
 
@@ -61,3 +69,57 @@ set smartindent
 :cw
 
 colorscheme molokai
+
+" ********************************************************
+" https://www.youtube.com/watch?v=XA2WjJbmmoM
+" *******************************************************
+" NOTE: use ":set <variable>?" to the value of a variable
+
+" *********************
+" FUZZY SEARCH:
+" *********************
+"
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+" - += -> appended to the current path
+" - ** -> when you look through a file, search through subdirectory, and every
+" subdirectory of every subdirectory  
+" - Can be used with :find (& with * wildcard)
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" ignore node_modules:
+" set wildignore+=**/node_modules/**
+
+" NOW WE CAN:
+" - Hit tab to :find by partial match
+" - Use * to make it fuzzy
+
+" CONSIDERATIONS:
+" - :b lets you autocomplete any open buffer
+
+" *********************
+" TAG JUMPING:
+" *********************
+"
+" Create the 'tags' file (may need to install "ctags" firsT)
+" "!" is for running as a shell command
+command! MakeTags !ctags -R .
+
+" NOW WE CAN:
+" - Use ^] to jump to tag under cursor
+" - Use g^] for ambiguous tags
+" - Use ^t to jump back up the tag stack
+
+" CONSIDERATIONS:
+" - This doesn't help if you want a visual list of tags
+
+
+" *********************
+" SNIPPETS:
+" *********************
+nnoremap ,singleton :-1read $HOME/.vim/snippets/ts/Singleton.ts<CR>
+
+

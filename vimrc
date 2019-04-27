@@ -53,7 +53,7 @@ set expandtab
 set smartindent
 
 " ***********************************************************
-" Custom
+" CUSTOM:
 " ***********************************************************
 
 " Map f9 to makefile command:
@@ -67,6 +67,9 @@ set smartindent
 :cclose
 " toggles the mini-window (if errors exist)
 :cw
+
+" Show whitespace
+:set list
 
 colorscheme molokai_dark
 

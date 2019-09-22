@@ -3,7 +3,8 @@
 "   - :cn
 "   - :cb
 "   - :cl
-"
+
+
 " ***********************************************************
 " https://linuxconfig.org/manage-vim-plugins-with-pathogen
 " ***********************************************************
@@ -25,11 +26,11 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 2
 " arrow font stuff for vim airlines
 let g:airline_powerline_fonts  = 1
-let g:airline_theme = 'wombat'
+" let g:airline_theme = 'wombat'
 " let g:airline_theme = 'kolor'
 " let g:airline_theme='molokai'
 " colorscheme molokai
-" let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'powerlineish'
 
 
 " ***********************************************************
@@ -153,3 +154,7 @@ let g:javascript_plugin_jsdoc = 1
 " let g:javascript_conceal_underscore_arrow_function = "🞅"
 
 
+" ***********************************************************
+" Stop windows line endings from being converted to "$" dollar signs
+" ***********************************************************
+se nolist

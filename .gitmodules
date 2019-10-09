@@ -13,18 +13,9 @@
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "bundle/vim-cpp-enhanced-highlight"]
-	path = bundle/vim-cpp-enhanced-highlight
-	url = https://github.com/octol/vim-cpp-enhanced-highlight
 [submodule "bundle/vim-colorschemes"]
 	path = bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
-[submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript

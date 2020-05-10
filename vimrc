@@ -1,160 +1,94 @@
-" CURRENT_FILE_NAME_PATH: echo expand("%");
-" HELPGREP: helpgrep <search term>
-"   - :cn
-"   - :cb
-"   - :cl
-
-
-" ***********************************************************
-" https://linuxconfig.org/manage-vim-plugins-with-pathogen
-" ***********************************************************
-set nocompatible
-filetype plugin on
-filetype plugin indent on
+" [See](https://www.youtube.com/watch?v=n9k9scbTuvQ)
 syntax on
-set showcmd
 
-execute pathogen#infect()
-
-
-
-" ***********************************************************
-" Airlines
-" https://github.com/vim-airline/vim-airline
-" ***********************************************************
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 2
-" arrow font stuff for vim airlines
-let g:airline_powerline_fonts  = 1
-" let g:airline_theme = 'wombat'
-" let g:airline_theme = 'kolor'
-" let g:airline_theme='molokai'
-" colorscheme molokai
-let g:airline_theme = 'powerlineish'
-
-
-" ***********************************************************
-" Tmux colouring issue
-" ***********************************************************
-" https://github.com/tmux/tmux/issues/699
-" set background=dark
-set t_Co=256
-
-" ***********************************************************
-" indentation:
-" https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
-" ***********************************************************
-
-" " show existing tab with 4 spaces width
-set tabstop=4
-" " when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" " On pressing tab, insert 4 spaces
+set noerrorbells
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
+set nu rnu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set colorcolumn=80
 
-" ***********************************************************
-" CUSTOM:
-" ***********************************************************
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-" Map f9 to makefile command:
-:map <f9> :make
-" Examining compilation errors:
+call plug#begin('~/.vim/plugged')
 
-" Open a mini-window with list of errors
-" Hit enter on an error to jump to line
-:copen
-" closes the mini-window
-:cclose
-" toggles the mini-window (if errors exist)
-:cw
+Plug 'morhetz/gruvbox'
+Plug 'jremmen/vim-ripgrep'
+" :Git add
+" :Git commi
+" :Git diff
+" :Git blame
+" :Git log
+" force bufffer: --paginate -p
+Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+" :Man printf
+" :Man pri<Tab> # auto complete
+" :gx # open a link under cursor in a browser
+" :gf # jump to a file under cursor
+Plug 'vim-utils/vim-man'
+Plug 'lyuts/vim-rtags'
+" [GitHub Ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'git@github.com:Valloric/YouCompleteMe.git'
+" [GitHub CoC](https://github.com/neoclide/coc.nvim)
+" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'mbbill/undotree'
 
-" Show whitespace
-:set list
-
-colorscheme molokai_dark
-
-" ********************************************************
-" https://www.youtube.com/watch?v=XA2WjJbmmoM
-" *******************************************************
-" NOTE: use ":set <variable>?" to the value of a variable
-
-" *********************
-" FUZZY SEARCH:
-" *********************
-"
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
-" - += -> appended to the current path
-" - ** -> when you look through a file, search through subdirectory, and every
-" subdirectory of every subdirectory  
-" - Can be used with :find (& with * wildcard)
-set path+=**
-
-" Display all matching files when we tab complete
-set wildmenu
-
-" ignore node_modules:
-" set wildignore+=**/node_modules/**
-
-" NOW WE CAN:
-" - Hit tab to :find by partial match
-" - Use * to make it fuzzy
-
-" CONSIDERATIONS:
-" - :b lets you autocomplete any open buffer
-
-" *********************
-" TAG JUMPING:
-" *********************
-"
-" Create the 'tags' file (may need to install "ctags" firsT)
-" "!" is for running as a shell command
-command! MakeTags !ctags -R .
-
-" NOW WE CAN:
-" - Use ^] to jump to tag under cursor
-" - Use g^] for ambiguous tags
-" - Use ^t to jump back up the tag stack
-
-" CONSIDERATIONS:
-" - This doesn't help if you want a visual list of tags
+call plug#end()
 
 
-" *********************
-" SNIPPETS:
-" *********************
-nnoremap ,singleton :-1read $HOME/.vim/snippets/ts/Singleton.ts<CR>
+set t_Co=256
+colorscheme gruvbox
+set background=dark
 
+" allow rg to detect root
+" & use .git as root
+" & use .gitignore for faster searching
+if executable('rg')
+  let g:rg_device_root='true'
+endif
 
-" ***********************************************************
-" Vim JavaScript plugin
-" https://github.com/pangloss/vim-javascript
-" ***********************************************************
-let g:javascript_plugin_jsdoc = 1
-" let g:javascript_plugin_ngdoc = 1
-" augroup javascript_folding
-"     au!
-"     au FileType javascript setlocal foldmethod=syntax
-" augroup END
+" ignore with ctrlp
+let g:ctrlp_user_command = ['./git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" leader key = spacebar
+let mapleader = " "
+let g:netrw_browse_split=2
+" remove help information on file tree
+let g_netrw_banner=0
+" window size should be ~25%
+let g:netrw_winsize=25
 
-" set conceallevel=1
- 
-" let g:javascript_conceal_function             = "ƒ"
-" let g:javascript_conceal_null                 = "ø"
-" let g:javascript_conceal_this                 = "@"
-" let g:javascript_conceal_return               = "⇚"
-" let g:javascript_conceal_undefined            = "¿"
-" let g:javascript_conceal_NaN                  = "ℕ"
-" let g:javascript_conceal_prototype            = "¶"
-" let g:javascript_conceal_static               = "•"
-" let g:javascript_conceal_super                = "Ω"
-" let g:javascript_conceal_arrow_function       = "⇒"
-" let g:javascript_conceal_noarg_arrow_function = "🞅"
-" let g:javascript_conceal_underscore_arrow_function = "🞅"
+" ag is fast enough that CtrLP doesn't need to cache
+let g:ctrlp_use_caching=0
 
+" remaps
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+" wincmd v splits 2 windows
+" :Ex opens netrw
+" resizes to 30
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+" ps: Project search
+" opens Ripgrep instantly
+nnoremap <leader>ps :Rg<SPACE>
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
 
-" ***********************************************************
-" Stop windows line endings from being converted to "$" dollar signs
-" ***********************************************************
-se nolist
+" YCM
+" The best part
+" nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+" nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
+

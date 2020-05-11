@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/nick/.vim/autoload'
-let g:netrw_dirhist_2='/home/nick/.vim/undodir'
-let g:netrw_dirhist_3='/home/nick/.vim'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/nick/development/temp/2/src'
+let g:netrw_dirhist_2='/home/nick/development/temp/2'
+let g:netrw_dirhist_3='/home/nick/development/temp/2/src'
+let g:netrw_dirhist_4='/home/nick/development/temp/2'

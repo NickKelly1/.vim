@@ -56,6 +56,7 @@ Plug 'mbbill/undotree'
 " [GitHub NERDTree](https://github.com/preservim/nerdtree)
 Plug 'preservim/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
+" [GitHub Vim Airline](https://github.com/vim-airline/vim-airline)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " [GitHub Nerdcommenter](https://github.com/preservim/nerdcommenter)
@@ -135,6 +136,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "wombat"
 
 
 " [NerdCommenter Config](https://github.com/preservim/nerdcommenter)
@@ -166,4 +169,14 @@ let g:NERDToggleCheckAllLines = 1
 
 
 " [Jedi-Vim config](https://github.com/davidhalter/jedi-vim)
-let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_command = "<leader>gd"
+
+" [Copying to clipboard](https://github.com/leafgarland/typescript-vim)
+vmap <C-c> "+y
+
+" make copy-pasting ident lines correctly
+" [GitHub plugin](https://github.com/ConradIrwin/vim-bracketed-paste)
+" set paste!
+" Setting this has side effects so I'm keeping turned off
+" Use ":help paste" for more info
+

@@ -112,6 +112,16 @@ nnoremap <silent> <leader>- :vertical resize -5<CR>
 " The best part
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
+nnoremap <silent> <leader>gs :YcmCompleter GetType<CR>
+" nnoremap <leader>gdf :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>gdc :YcmCompleter GoToDeclaration<CR>
+" nnoremap <leader>gdr :YcmCompleter GoToReferences<CR>
+" nnoremap <leader>gdi :YcmCompleter GoToImplementation<CR>
+" nnoremap <leader>gdt :YcmCompleter GoToType<CR>
+" nnoremap <leader>gdt :YcmCompleter GoToType<CR>
+" nnoremap <leader>gdd :YcmCompleter GoTo<CR>
+" nnoremap <leader>gp :YcmCompleter GetType<CR>
+" nnoremap <leader>gf :YcmCompleter FixIt<CR>
 
 " [make QuickFix show if there are any errors](https://github.com/leafgarland/typescript-vim)
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -168,8 +178,11 @@ let g:NERDToggleCheckAllLines = 1
 " <leader>cu            => uncomment the selected lines
 
 
-" [Jedi-Vim config](https://github.com/davidhalter/jedi-vim)
-let g:jedi#goto_command = "<leader>gd"
+" Python
+if (&filetype=='py')
+  " [Jedi-Vim config](https://github.com/davidhalter/jedi-vim)
+  let g:jedi#goto_command = "<leader>gd"
+endif
 
 " [Copying to clipboard](https://github.com/leafgarland/typescript-vim)
 vmap <C-c> "+y

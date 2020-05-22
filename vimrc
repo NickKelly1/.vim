@@ -17,6 +17,8 @@ set undofile
 set incsearch
 set colorcolumn=80
 
+filetype plugin on
+
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
@@ -47,7 +49,7 @@ Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
 " [GitHub Ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'Valloric/YouCompleteMe'
 " [GitHub CoC](https://github.com/neoclide/coc.nvim)
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'mbbill/undotree'
@@ -56,6 +58,10 @@ Plug 'preservim/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" [GitHub Nerdcommenter](https://github.com/preservim/nerdcommenter)
+Plug 'preservim/nerdcommenter'
+" [GitHub Jedi-Vim](https://github.com/davidhalter/jedi-vim)
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -129,3 +135,35 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
+
+
+" [NerdCommenter Config](https://github.com/preservim/nerdcommenter)
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for perttified multi line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom format or override the default
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**', 'right': '*/' } }
+" Allow commenting and inverting empty lines (useful whn commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all lines whether commented or not
+let g:NERDToggleCheckAllLines = 1
+
+" <leader>cc            => comment
+" <leader>cn            => comment with forced nesting
+" <leader>c<space>      => toggle comment
+" <leader>cm            => comment given lines using one set of multipart delimiters
+" <leader>ci            => comment state of selected line(s) individually
+" <leader>cs            => comment out selected lines with a pretty block formatted layout
+" <leader>cy            => same as cc except that commented line(s) are yanked first
+" <leader>cu            => uncomment the selected lines
+
+
+" [Jedi-Vim config](https://github.com/davidhalter/jedi-vim)
+let g:jedi#goto_command = "<leader>d"
